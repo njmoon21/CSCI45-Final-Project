@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbiu0yaye2io0"]
+
+[ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="1_1lfym"]
+[ext_resource type="Script" path="res://Scenes/Menus/Main Menu/main_menu.gd" id="1_wwrpq"]
+[ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="2_n0i5l"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wwrpq")
+
+[node name="startButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 154.0
+offset_top = 110.0
+offset_right = 269.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("1_1lfym")
+text = "Start"
+
+[node name="settingsButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 154.0
+offset_top = 149.0
+offset_right = 269.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("1_1lfym")
+text = "Settings"
+
+[node name="quitButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 154.0
+offset_top = 187.0
+offset_right = 269.0
+offset_bottom = 215.0
+theme_override_fonts/font = ExtResource("1_1lfym")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 60.0
+offset_right = 329.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("2_n0i5l")
+theme_override_font_sizes/font_size = 24
+text = "Ninja Frog"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="quitButton" to="." method="_on_quit_button_pressed"]
