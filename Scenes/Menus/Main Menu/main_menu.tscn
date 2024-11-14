@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbiu0yaye2io0"]
+[gd_scene load_steps=5 format=3 uid="uid://bbiu0yaye2io0"]
 
 [ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="1_1lfym"]
 [ext_resource type="Script" path="res://Scenes/Menus/Main Menu/main_menu.gd" id="1_wwrpq"]
 [ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="2_n0i5l"]
+[ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="4_jdd57"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -50,6 +51,11 @@ theme_override_fonts/font = ExtResource("2_n0i5l")
 theme_override_font_sizes/font_size = 24
 text = "Ninja Frog"
 horizontal_alignment = 1
+
+[node name="TapSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jdd57")
+pitch_scale = 0.5
+bus = &"SFX"
 
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
