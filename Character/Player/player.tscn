@@ -265,5 +265,5 @@ shape = SubResource("CapsuleShape2D_hvdk5")
 [node name="jumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_xtxog")
 volume_db = -15.0
-pitch_scale = 0.9
+pitch_scale = 0.95
 bus = &"SFX"
