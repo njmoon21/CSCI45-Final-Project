@@ -43,17 +43,18 @@ text = "Quit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 95.0
-offset_top = 60.0
-offset_right = 329.0
-offset_bottom = 93.0
+offset_left = 96.0
+offset_top = 54.0
+offset_right = 330.0
+offset_bottom = 87.0
 theme_override_fonts/font = ExtResource("2_n0i5l")
 theme_override_font_sizes/font_size = 24
-text = "Ninja Frog"
+text = "NINJA  FROG"
 horizontal_alignment = 1
 
 [node name="TapSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jdd57")
+volume_db = -10.0
 pitch_scale = 0.5
 bus = &"SFX"
 
