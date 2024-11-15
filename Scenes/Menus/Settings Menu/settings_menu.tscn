@@ -1,9 +1,114 @@
-[gd_scene format=3 uid="uid://dmkr1h516ff0p"]
+[gd_scene load_steps=8 format=3 uid="uid://dmkr1h516ff0p"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/master_volume_slide.gd" id="1_f7n18"]
+[ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/settings_menu.gd" id="1_o81s0"]
+[ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="2_0wgik"]
+[ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/music_volume_slide.gd" id="2_hawa5"]
+[ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/sfx_volume_slide.gd" id="3_8r47i"]
+[ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="4_xukwx"]
+[ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="7_ghxx8"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o81s0")
+
+[node name="MasterVolumeSlide" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 58.0
+offset_right = 212.0
+offset_bottom = 74.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_f7n18")
+bus_name = "Master"
+
+[node name="MusicVolumeSlide" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 104.0
+offset_right = 211.0
+offset_bottom = 120.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_hawa5")
+bus_name = "Music"
+
+[node name="SFXVolumeSlide" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 152.0
+offset_right = 211.0
+offset_bottom = 168.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_8r47i")
+bus_name = "SFX"
+
+[node name="VolumeLabel" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 208.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_0wgik")
+theme_override_font_sizes/font_size = 24
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="MasterLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 19.0
+offset_top = 57.0
+offset_right = 105.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("4_xukwx")
+theme_override_font_sizes/font_size = 16
+text = "Master"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 19.0
+offset_top = 103.0
+offset_right = 105.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("4_xukwx")
+theme_override_font_sizes/font_size = 16
+text = "Music"
+horizontal_alignment = 1
+
+[node name="SFXLabel" type="Label" parent="."]
+texture_filter = 1
+offset_left = 18.0
+offset_top = 152.0
+offset_right = 104.0
+offset_bottom = 188.0
+theme_override_fonts/font = ExtResource("4_xukwx")
+theme_override_font_sizes/font_size = 16
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 187.0
+offset_right = 281.0
+offset_bottom = 222.0
+theme_override_fonts/font = ExtResource("4_xukwx")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="TapSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ghxx8")
+volume_db = -10.0
+pitch_scale = 0.5
+bus = &"SFX"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

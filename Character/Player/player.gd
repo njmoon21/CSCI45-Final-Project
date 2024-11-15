@@ -5,7 +5,8 @@ extends CharacterBody2D
 @export var jump_velocity: float = -200.0
 @export var double_jump_velocity: float = -180.0
 
-@onready var animated_sprite : AnimatedSprite2D = $sprite
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite
+@onready var jump_audio = $jumpSFX
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -67,14 +68,12 @@ func update_animation():
 		else:
 			animated_sprite.play("idle")
 
-
 # Determines direction your character is facing
 func update_facing_direction():
 	if direction.x > 0:
 		animated_sprite.flip_h = false
 	elif direction.x < 0:
 		animated_sprite.flip_h = true
-
 
 # Changes the animation once your y-velocity is making your fall
 func update_air_animation():
@@ -83,20 +82,19 @@ func update_air_animation():
 		animated_sprite.play("falling")
 		animation_locked = true
 
-
 # Code for making the character jump ; sets jumping animation
 func jump():
 	velocity.y = jump_velocity
 	animated_sprite.play("jumping")
 	animation_locked = true
-
+	jump_audio.play()
 
 # Code for making the character double jump ; sets double jump animation
 func double_jump():
 	velocity.y = double_jump_velocity
 	animated_sprite.play("double_jumping")
 	animation_locked = true
-
+	jump_audio.play()
 
 # Once you land, unlock the animation so that the character can change between idle and running again
 func land():
