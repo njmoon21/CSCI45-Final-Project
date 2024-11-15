@@ -86,11 +86,11 @@ script = ExtResource("1_2657m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1.75, -0.953126)
-scale = Vector2(0.958333, 0.936458)
+position = Vector2(2.25, -0.953126)
+scale = Vector2(0.986111, 0.936458)
 sprite_frames = SubResource("SpriteFrames_pa8tk")
 autoplay = "default"
-frame_progress = 0.138855
+frame_progress = 0.0754323
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 3)
