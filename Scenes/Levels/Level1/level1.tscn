@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/level_1.gd" id="1_udj6u"]
 [ext_resource type="Texture2D" uid="uid://dpks0k2kjkgq7" path="res://Imported Sprites/Background/Pink.png" id="2_r1pua"]
 [ext_resource type="Texture2D" uid="uid://c3w8506v5linj" path="res://Imported Sprites/Terrain/Terrain (16x16).png" id="3_vqp4l"]
-[ext_resource type="PackedScene" uid="uid://46fisbj86124" path="res://Character/Player/Player.tscn" id="4_a21iq"]
+[ext_resource type="PackedScene" uid="uid://46fisbj86124" path="res://Character/Player/player.tscn" id="4_a21iq"]
 [ext_resource type="PackedScene" uid="uid://cxvy52fwy0xpl" path="res://Character/Enemies/Pig/pig_enemy.tscn" id="6_3bubu"]
 [ext_resource type="PackedScene" uid="uid://2cusb711oyrs" path="res://Scenes/Menus/Pause Menu/pause_menu.tscn" id="6_vqqq6"]
 [ext_resource type="AudioStream" uid="uid://dor2qfegsg2sj" path="res://Audio/Music/OMORI OST - 013 A Home For Flowers (Tulip).mp3" id="7_tvaer"]

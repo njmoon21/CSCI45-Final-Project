@@ -16,4 +16,4 @@ func _physics_process(delta: float) -> void:
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Player"):
 		queue_free()
-	
+		animated_sprite.play("die")
