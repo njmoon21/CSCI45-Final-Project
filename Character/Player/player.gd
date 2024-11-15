@@ -33,7 +33,7 @@ func _physics_process(delta):
 		has_double_jumped = false
 		if was_in_air == true:
 			land()
-
+	
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump"):
@@ -46,7 +46,7 @@ func _physics_process(delta):
 			# Double jump in air
 			double_jump()
 			has_double_jumped = true
-
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -55,7 +55,8 @@ func _physics_process(delta):
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, 12)
-
+	
+	
 	move_and_slide()
 	update_animation()
 	update_facing_direction()
