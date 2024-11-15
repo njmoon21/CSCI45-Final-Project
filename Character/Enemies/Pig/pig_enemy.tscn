@@ -75,10 +75,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80b00"]
-size = Vector2(21, 19.5)
+size = Vector2(21, 20.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvtch"]
-size = Vector2(17, 1.75)
+size = Vector2(17.5, 1.75)
 
 [node name="Pig Enemy" type="CharacterBody2D"]
 texture_filter = 1
@@ -86,21 +86,21 @@ script = ExtResource("1_2657m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2.25, -0.953126)
-scale = Vector2(0.986111, 0.936458)
+position = Vector2(2.25, -1.95313)
+scale = Vector2(0.986111, 1.00312)
 sprite_frames = SubResource("SpriteFrames_pa8tk")
 autoplay = "default"
-frame_progress = 0.0754323
+frame_progress = 0.43482
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 3)
+position = Vector2(2, 2.625)
 shape = SubResource("RectangleShape2D_80b00")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(1, -7)
+position = Vector2(1.25, -8)
 shape = SubResource("RectangleShape2D_xvtch")
 debug_color = Color(0.923927, 0.250426, 0.299585, 0.42)
 
