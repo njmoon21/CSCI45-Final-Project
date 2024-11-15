@@ -21,6 +21,8 @@ var was_in_air: bool = false
 # NOTE BY NATHAN: I created custom key bindings via the project settings, DM me if you have any questions about that
 # Jump = Z
 
+func _ready():
+	add_to_group("Player")
 
 func _physics_process(delta):
 	# Add the gravity.
