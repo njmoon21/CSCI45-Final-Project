@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://g1pvtlot5psp"]
+[gd_scene load_steps=16 format=4 uid="uid://g1pvtlot5psp"]
 
 [ext_resource type="Shader" path="res://Scenes/Levels/Level1/blueBackground.gdshader" id="1_na3um"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/level_1.gd" id="1_udj6u"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://rkcx56pequd0" path="res://Character/Enemies/BBird/BlueBird.tscn" id="6_smqjy"]
 [ext_resource type="PackedScene" uid="uid://2cusb711oyrs" path="res://Scenes/Menus/Pause Menu/pause_menu.tscn" id="6_vqqq6"]
 [ext_resource type="AudioStream" uid="uid://dor2qfegsg2sj" path="res://Audio/Music/OMORI OST - 013 A Home For Flowers (Tulip).mp3" id="7_tvaer"]
+[ext_resource type="PackedScene" uid="uid://di8qoe2hd6led" path="res://Imported Sprites/Items/Checkpoints/End/end.tscn" id="10_p2bmv"]
+[ext_resource type="PackedScene" uid="uid://bbiu0yaye2io0" path="res://Scenes/Menus/Pause Menu/main_menu.tscn" id="11_5heyb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wpdw1"]
 shader = ExtResource("1_na3um")
@@ -215,16 +217,24 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.0
 editor_draw_limits = true
 
-[node name="Pig Enemy" parent="." instance=ExtResource("6_3bubu")]
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Pig Enemy3" parent="Enemies" instance=ExtResource("6_3bubu")]
+position = Vector2(617, 132)
+
+[node name="Pig Enemy2" parent="Enemies" instance=ExtResource("6_3bubu")]
+position = Vector2(325, 132)
+
+[node name="Pig Enemy" parent="Enemies" instance=ExtResource("6_3bubu")]
 position = Vector2(158, 132)
 
-[node name="BlueBird" parent="." instance=ExtResource("6_smqjy")]
+[node name="BlueBird" parent="Enemies" instance=ExtResource("6_smqjy")]
 position = Vector2(988, 117)
 
-[node name="BlueBird2" parent="." instance=ExtResource("6_smqjy")]
+[node name="BlueBird2" parent="Enemies" instance=ExtResource("6_smqjy")]
 position = Vector2(1130, 59)
 
-[node name="BlueBird3" parent="." instance=ExtResource("6_smqjy")]
+[node name="BlueBird3" parent="Enemies" instance=ExtResource("6_smqjy")]
 position = Vector2(1060, 86)
 
 [node name="player" parent="." instance=ExtResource("4_a21iq")]
@@ -252,3 +262,7 @@ grow_vertical = 1
 stream = ExtResource("7_tvaer")
 volume_db = -20.0
 bus = &"Music"
+
+[node name="End" parent="." instance=ExtResource("10_p2bmv")]
+position = Vector2(1165, 91)
+target_level = ExtResource("11_5heyb")

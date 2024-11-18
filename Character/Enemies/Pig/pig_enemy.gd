@@ -10,7 +10,16 @@ func _physics_process(delta: float) -> void:
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Player"):
-		animated_sprite.play("die")
-		await animated_sprite.animation_finished
-		queue_free()
+		var y_delta = position.y - body.position.y
+		if (y_delta > 20):
+			print("Destroy Enemy")
+			body.jump()
+			animated_sprite.play("die")
+			await animated_sprite.animation_finished
+			queue_free()
+		else:
+			print("Hitting Enemy from sides")
+		#animated_sprite.play("die")
+		#await animated_sprite.animation_finished
+		#queue_free()
 		

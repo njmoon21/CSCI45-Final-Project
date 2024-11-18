@@ -237,7 +237,7 @@ animations = [{
 size = Vector2(21, 20.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvtch"]
-size = Vector2(17.5, 1.75)
+size = Vector2(21.1, 21)
 
 [node name="Pig Enemy" type="CharacterBody2D"]
 texture_filter = 1
@@ -248,7 +248,6 @@ texture_filter = 1
 position = Vector2(2.25, -1.95313)
 scale = Vector2(0.986111, 1.00312)
 sprite_frames = SubResource("SpriteFrames_pa8tk")
-animation = &"die"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -259,7 +258,7 @@ shape = SubResource("RectangleShape2D_80b00")
 position = Vector2(1, 0)
 
 [node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(1.25, -8)
+position = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_xvtch")
 debug_color = Color(0.923927, 0.250426, 0.299585, 0.42)
 
