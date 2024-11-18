@@ -1,18 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbiu0yaye2io0"]
+[gd_scene load_steps=8 format=3 uid="uid://bbiu0yaye2io0"]
 
 [ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="1_1lfym"]
 [ext_resource type="Script" path="res://Scenes/Menus/Main Menu/main_menu.gd" id="1_wwrpq"]
+[ext_resource type="Texture2D" uid="uid://6067o573r0yc" path="res://Imported Sprites/Background/Green.png" id="2_janud"]
 [ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="2_n0i5l"]
+[ext_resource type="Shader" path="res://Scenes/Menus/Main Menu/main_menu_background.gdshader" id="2_q4cad"]
 [ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="4_jdd57"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_238es"]
+shader = ExtResource("2_q4cad")
+
 [node name="MainMenu" type="Control"]
+texture_filter = 1
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wwrpq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_238es")
+layout_mode = 0
+offset_left = -40.0
+offset_top = -13.0
+offset_right = 24.0
+offset_bottom = 51.0
+scale = Vector2(7.8125, 4.78125)
+texture = ExtResource("2_janud")
+stretch_mode = 1
 
 [node name="startButton" type="Button" parent="."]
 layout_mode = 2
@@ -58,6 +75,9 @@ volume_db = -10.0
 pitch_scale = 0.5
 bus = &"SFX"
 
+[connection signal="focus_entered" from="startButton" to="." method="_on_start_button_focus_entered"]
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
+[connection signal="focus_entered" from="settingsButton" to="." method="_on_settings_button_focus_entered"]
 [connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="focus_entered" from="quitButton" to="." method="_on_quit_button_focus_entered"]
 [connection signal="pressed" from="quitButton" to="." method="_on_quit_button_pressed"]

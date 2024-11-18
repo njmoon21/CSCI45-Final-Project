@@ -19,3 +19,7 @@ func _on_animation_finished(anim_name):
 func transition():
 	color_rect.visible = true
 	animation_player.play("fade_out")
+
+func open_game_transition():
+	animation_player.play("fade_in")
+	color_rect.visible = false

@@ -1,12 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmkr1h516ff0p"]
+[gd_scene load_steps=11 format=3 uid="uid://dmkr1h516ff0p"]
 
 [ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/master_volume_slide.gd" id="1_f7n18"]
 [ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/settings_menu.gd" id="1_o81s0"]
 [ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="2_0wgik"]
+[ext_resource type="Shader" path="res://Scenes/Menus/Main Menu/main_menu_background.gdshader" id="2_f508u"]
 [ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/music_volume_slide.gd" id="2_hawa5"]
 [ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/sfx_volume_slide.gd" id="3_8r47i"]
+[ext_resource type="Texture2D" uid="uid://6067o573r0yc" path="res://Imported Sprites/Background/Green.png" id="3_fcsr5"]
 [ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="4_xukwx"]
 [ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="7_ghxx8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mbiax"]
+shader = ExtResource("2_f508u")
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -19,38 +24,61 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o81s0")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_mbiax")
+offset_left = -39.0
+offset_top = -16.0
+offset_right = 25.0
+offset_bottom = 48.0
+scale = Vector2(7.8125, 4.78125)
+texture = ExtResource("3_fcsr5")
+stretch_mode = 1
+
 [node name="MasterVolumeSlide" type="HSlider" parent="."]
+modulate = Color(0.101961, 0.886275, 0, 1)
 layout_mode = 0
 offset_left = 112.0
 offset_top = 58.0
 offset_right = 212.0
 offset_bottom = 74.0
 max_value = 1.0
-step = 0.001
+step = 0.1
 script = ExtResource("1_f7n18")
 bus_name = "Master"
 
+[node name="MasterAudio" type="AudioStreamPlayer" parent="MasterVolumeSlide"]
+
 [node name="MusicVolumeSlide" type="HSlider" parent="."]
+modulate = Color(0.101961, 0.886275, 0, 1)
 layout_mode = 0
 offset_left = 111.0
 offset_top = 104.0
 offset_right = 211.0
 offset_bottom = 120.0
 max_value = 1.0
-step = 0.001
+step = 0.1
 script = ExtResource("2_hawa5")
 bus_name = "Music"
 
+[node name="MusicAudio" type="AudioStreamPlayer" parent="MusicVolumeSlide"]
+bus = &"Music"
+
 [node name="SFXVolumeSlide" type="HSlider" parent="."]
+modulate = Color(0.102425, 0.88551, 0, 1)
 layout_mode = 0
 offset_left = 111.0
 offset_top = 152.0
 offset_right = 211.0
 offset_bottom = 168.0
 max_value = 1.0
-step = 0.001
+step = 0.1
+ticks_on_borders = true
 script = ExtResource("3_8r47i")
 bus_name = "SFX"
+
+[node name="SFXAudio" type="AudioStreamPlayer" parent="SFXVolumeSlide"]
+bus = &"SFX"
 
 [node name="VolumeLabel" type="Label" parent="."]
 layout_mode = 0
@@ -99,12 +127,33 @@ theme_override_font_sizes/font_size = 16
 text = "SFX"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="FullscreenLabel" type="Label" parent="."]
+offset_left = 227.0
+offset_top = 43.0
+offset_right = 416.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("2_0wgik")
+theme_override_font_sizes/font_size = 16
+text = "Fullscreen"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="."]
+modulate = Color(0.101961, 0.886275, 0, 1)
+layout_direction = 2
+layout_mode = 0
+offset_left = 299.0
+offset_top = 63.0
+offset_right = 343.0
+offset_bottom = 87.0
+scale = Vector2(1.02, 1.02)
+icon_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 145.0
-offset_top = 187.0
+offset_top = 191.0
 offset_right = 281.0
-offset_bottom = 222.0
+offset_bottom = 226.0
 theme_override_fonts/font = ExtResource("4_xukwx")
 theme_override_font_sizes/font_size = 24
 text = "Back"
@@ -115,4 +164,14 @@ volume_db = -10.0
 pitch_scale = 0.5
 bus = &"SFX"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="focus_entered" from="MasterVolumeSlide" to="." method="_on_master_volume_slide_focus_entered"]
+[connection signal="value_changed" from="MasterVolumeSlide" to="." method="_on_master_volume_slide_value_changed"]
+[connection signal="focus_entered" from="MusicVolumeSlide" to="." method="_on_music_volume_slide_focus_entered"]
+[connection signal="value_changed" from="MusicVolumeSlide" to="." method="_on_music_volume_slide_value_changed"]
+[connection signal="focus_entered" from="SFXVolumeSlide" to="." method="_on_sfx_volume_slide_focus_entered"]
+[connection signal="value_changed" from="SFXVolumeSlide" to="." method="_on_sfx_volume_slide_value_changed"]
+[connection signal="focus_entered" from="CheckButton" to="." method="_on_check_button_focus_entered"]
+[connection signal="pressed" from="CheckButton" to="." method="_on_check_button_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="focus_entered" from="BackButton" to="." method="_on_back_button_focus_entered"]
+[connection signal="pressed" from="BackButton" to="." method="_on_button_pressed"]
