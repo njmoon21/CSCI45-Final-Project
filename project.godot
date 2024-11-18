@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="Csci 45 Final"
-run/main_scene="res://Scenes/Menus/Pause Menu/main_menu.tscn"
+run/main_scene="res://Scenes/Menus/Main Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Transitioner="*res://Other/transitioner.tscn"
+Globals="*res://Other/globals.gd"
+MenuMusic="*res://Other/menu_music.tscn"
 
 [display]
 

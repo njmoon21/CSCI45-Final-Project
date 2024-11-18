@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgxjqhitehbqy"
+path="res://.godot/imported/[Hotel Dusk_ Room 215] 18 -- Monochrome.mp3-177c24907974197cd6765a917091f22a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/[Hotel Dusk_ Room 215] 18 -- Monochrome.mp3"
+dest_files=["res://.godot/imported/[Hotel Dusk_ Room 215] 18 -- Monochrome.mp3-177c24907974197cd6765a917091f22a.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
