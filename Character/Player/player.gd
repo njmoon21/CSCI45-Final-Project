@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-
+@onready var die_sfx = $dieSFX
 @export var speed: float = 165.0
 @export var jump_velocity: float = -200.0
 @export var double_jump_velocity: float = -180.0
+@export var dead_animation_string: String = "blank"
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite
 @onready var jump_audio = $jumpSFX
@@ -33,6 +34,7 @@ func _physics_process(delta):
 		has_double_jumped = false
 		if was_in_air == true:
 			land()
+		
 	
 
 	# Handle Jump.
@@ -52,7 +54,11 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
 	if direction:
-		velocity.x = direction.x * speed
+		if dead_animation_string == "dead":
+			direction = Input.get_vector(" ", " ", " ", " ")
+			velocity.x = 0
+		else:
+			velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, 12)
 	
@@ -82,7 +88,7 @@ func update_facing_direction():
 
 # Changes the animation once your y-velocity is making your fall
 func update_air_animation():
-	if velocity.y > 0:
+	if velocity.y > 0 && not animation_locked:
 		animation_locked = false
 		animated_sprite.play("falling")
 		animation_locked = true
@@ -95,6 +101,13 @@ func jump():
 	animation_locked = true
 	jump_audio.play()
 
+func death_animation():
+	die_sfx.play()
+	dead_animation_string = "dead"
+	set_process_input(false)
+	velocity.y = jump_velocity
+	animated_sprite.play("death")
+	animation_locked = true
 
 # Code for making the character bounce off an enemy (EXACT same function as jump but WITHOUT jump audio)
 func enemy_bounce():
@@ -105,12 +118,18 @@ func enemy_bounce():
 
 # Code for making the character double jump ; sets double jump animation
 func double_jump():
-	velocity.y = double_jump_velocity
-	animated_sprite.play("double_jumping")
-	animation_locked = true
-	jump_audio.play()
+	if dead_animation_string == "dead":
+		animation_locked == true
+	else:
+		velocity.y = double_jump_velocity
+		animated_sprite.play("double_jumping")
+		animation_locked = true
+		jump_audio.play()
 
 
 # Once you land, unlock the animation so that the character can change between idle and running again
 func land():
-	animation_locked = false
+	if dead_animation_string == "dead":
+		animation_locked = true
+	else:
+		animation_locked = false
