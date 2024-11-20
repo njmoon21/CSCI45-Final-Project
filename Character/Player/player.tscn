@@ -1,12 +1,18 @@
-[gd_scene load_steps=39 format=3 uid="uid://46fisbj86124"]
+[gd_scene load_steps=42 format=3 uid="uid://46fisbj86124"]
 
 [ext_resource type="Script" path="res://Character/Player/Player.gd" id="1_8xydi"]
+[ext_resource type="Texture2D" uid="uid://bdo0b2yqb68dj" path="res://Imported Sprites/Main Characters/Ninja Frog/Hit (32x32).png" id="2_3h0qp"]
 [ext_resource type="Texture2D" uid="uid://bfv0vtse2pr0j" path="res://Imported Sprites/Main Characters/Ninja Frog/Double Jump (32x32).png" id="2_qiji0"]
 [ext_resource type="Texture2D" uid="uid://b2dcnsccerbd6" path="res://Imported Sprites/Main Characters/Ninja Frog/Fall (32x32).png" id="3_7k4vv"]
 [ext_resource type="Texture2D" uid="uid://dymdxa0o6pnhn" path="res://Imported Sprites/Main Characters/Ninja Frog/Idle (32x32).png" id="4_pwhne"]
 [ext_resource type="Texture2D" uid="uid://ctemq0am8d4rj" path="res://Imported Sprites/Main Characters/Ninja Frog/Jump (32x32).png" id="5_ds3iu"]
 [ext_resource type="Texture2D" uid="uid://oyr7xw6el7b7" path="res://Imported Sprites/Main Characters/Ninja Frog/Run (32x32).png" id="6_rfdq3"]
 [ext_resource type="AudioStream" uid="uid://du8kn08reiw8b" path="res://Audio/SFX/jump.wav" id="7_xtxog"]
+[ext_resource type="AudioStream" uid="uid://d0lok85ku7ui8" path="res://Audio/SFX/hurt.wav" id="9_6r3sr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spjky"]
+atlas = ExtResource("2_3h0qp")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_50yhs"]
 atlas = ExtResource("2_qiji0")
@@ -126,6 +132,14 @@ region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hhq7b"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spjky")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_50yhs")
@@ -255,8 +269,9 @@ double_jump_velocity = -200.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hhq7b")
-animation = &"falling"
-autoplay = "idle"
+animation = &"death"
+autoplay = "death"
+frame_progress = 0.962538
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -267,3 +282,7 @@ stream = ExtResource("7_xtxog")
 volume_db = -15.0
 pitch_scale = 0.95
 bus = &"SFX"
+
+[node name="dieSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6r3sr")
+volume_db = 1.5
