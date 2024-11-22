@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbiu0yaye2io0"]
+[gd_scene load_steps=9 format=3 uid="uid://bbiu0yaye2io0"]
 
 [ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="1_1lfym"]
 [ext_resource type="Script" path="res://Scenes/Menus/Main Menu/main_menu.gd" id="1_wwrpq"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="2_n0i5l"]
 [ext_resource type="Shader" path="res://Scenes/Menus/Main Menu/main_menu_background.gdshader" id="2_q4cad"]
 [ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="4_jdd57"]
+[ext_resource type="AudioStream" uid="uid://dmiifk8w12h84" path="res://Audio/Music/[Hotel Dusk_ Room 215] 01 -- Desert Highway.mp3" id="7_amlel"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_238es"]
 shader = ExtResource("2_q4cad")
@@ -75,6 +76,10 @@ stream = ExtResource("4_jdd57")
 volume_db = -10.0
 pitch_scale = 0.5
 bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_amlel")
+volume_db = -5.0
 
 [connection signal="focus_entered" from="startButton" to="." method="_on_start_button_focus_entered"]
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]

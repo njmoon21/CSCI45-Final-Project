@@ -1,9 +1,204 @@
-[gd_scene format=3 uid="uid://2cusb711oyrs"]
+[gd_scene load_steps=8 format=3 uid="uid://2cusb711oyrs"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Pause Menu/pause_menu.gd" id="1_4wsoh"]
+[ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/master_volume_slide.gd" id="1_xjkr0"]
+[ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/music_volume_slide.gd" id="2_ywcr7"]
+[ext_resource type="Script" path="res://Scenes/Menus/Settings Menu/sfx_volume_slide.gd" id="3_0xmy6"]
+[ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="4_kdgoh"]
+[ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="5_dq7pn"]
+[ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="6_nwdtv"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4wsoh")
+
+[node name="MasterVolumeSlide" type="HSlider" parent="."]
+visible = false
+modulate = Color(0.101961, 0.886275, 0, 1)
+offset_left = 112.0
+offset_top = 58.0
+offset_right = 212.0
+offset_bottom = 74.0
+max_value = 1.0
+step = 0.1
+script = ExtResource("1_xjkr0")
+bus_name = "Master"
+
+[node name="MasterAudio" type="AudioStreamPlayer" parent="MasterVolumeSlide"]
+
+[node name="MusicVolumeSlide" type="HSlider" parent="."]
+visible = false
+modulate = Color(0.101961, 0.886275, 0, 1)
+offset_left = 111.0
+offset_top = 104.0
+offset_right = 211.0
+offset_bottom = 120.0
+max_value = 1.0
+step = 0.1
+script = ExtResource("2_ywcr7")
+bus_name = "Music"
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="MusicVolumeSlide"]
+bus = &"Music"
+
+[node name="SFXVolumeSlide" type="HSlider" parent="."]
+visible = false
+modulate = Color(0.102425, 0.88551, 0, 1)
+offset_left = 111.0
+offset_top = 152.0
+offset_right = 211.0
+offset_bottom = 168.0
+max_value = 1.0
+step = 0.1
+ticks_on_borders = true
+script = ExtResource("3_0xmy6")
+bus_name = "SFX"
+
+[node name="SFXAudio" type="AudioStreamPlayer" parent="SFXVolumeSlide"]
+bus = &"SFX"
+
+[node name="VolumeLabel" type="Label" parent="."]
+visible = false
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 208.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("4_kdgoh")
+theme_override_font_sizes/font_size = 24
+text = "Volume"
+horizontal_alignment = 1
+
+[node name="MasterLabel" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 19.0
+offset_top = 57.0
+offset_right = 105.0
+offset_bottom = 93.0
+theme_override_fonts/font = ExtResource("5_dq7pn")
+theme_override_font_sizes/font_size = 16
+text = "Master"
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 19.0
+offset_top = 103.0
+offset_right = 105.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("5_dq7pn")
+theme_override_font_sizes/font_size = 16
+text = "Music"
+horizontal_alignment = 1
+
+[node name="SFXLabel" type="Label" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 18.0
+offset_top = 152.0
+offset_right = 104.0
+offset_bottom = 188.0
+theme_override_fonts/font = ExtResource("5_dq7pn")
+theme_override_font_sizes/font_size = 16
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="FullscreenLabel" type="Label" parent="."]
+visible = false
+offset_left = 226.0
+offset_top = 80.0
+offset_right = 415.0
+offset_bottom = 113.0
+theme_override_fonts/font = ExtResource("4_kdgoh")
+theme_override_font_sizes/font_size = 16
+text = "Fullscreen"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="."]
+visible = false
+modulate = Color(0.101961, 0.886275, 0, 1)
+layout_direction = 2
+offset_left = 298.0
+offset_top = 100.0
+offset_right = 342.0
+offset_bottom = 124.0
+scale = Vector2(1.02, 1.02)
+icon_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="."]
+visible = false
+offset_left = 83.0
+offset_top = 190.0
+offset_right = 197.0
+offset_bottom = 217.0
+theme_override_fonts/font = ExtResource("5_dq7pn")
+theme_override_font_sizes/font_size = 16
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="."]
+visible = false
+offset_left = 241.0
+offset_top = 190.0
+offset_right = 355.0
+offset_bottom = 217.0
+theme_override_fonts/font = ExtResource("5_dq7pn")
+theme_override_font_sizes/font_size = 16
+text = "Quit"
+
+[node name="TapSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nwdtv")
+volume_db = -10.0
+pitch_scale = 0.5
+bus = &"SFX"
+
+[node name="PauseLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -9.0
+offset_right = 95.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("4_kdgoh")
+theme_override_font_sizes/font_size = 16
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="QuitLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = 14.0
+offset_right = 95.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("4_kdgoh")
+theme_override_font_sizes/font_size = 8
+text = "Press 'X' to Quit"
+horizontal_alignment = 1
+
+[connection signal="focus_entered" from="MasterVolumeSlide" to="." method="_on_master_volume_slide_focus_entered"]
+[connection signal="value_changed" from="MasterVolumeSlide" to="." method="_on_master_volume_slide_value_changed"]
+[connection signal="focus_entered" from="MusicVolumeSlide" to="." method="_on_music_volume_slide_focus_entered"]
+[connection signal="value_changed" from="MusicVolumeSlide" to="." method="_on_music_volume_slide_value_changed"]
+[connection signal="focus_entered" from="SFXVolumeSlide" to="." method="_on_sfx_volume_slide_focus_entered"]
+[connection signal="value_changed" from="SFXVolumeSlide" to="." method="_on_sfx_volume_slide_value_changed"]
+[connection signal="focus_entered" from="CheckButton" to="." method="_on_check_button_focus_entered"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="focus_entered" from="ResumeButton" to="." method="_on_resume_button_focus_entered"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="focus_entered" from="QuitButton" to="." method="_on_quit_button_focus_entered"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
