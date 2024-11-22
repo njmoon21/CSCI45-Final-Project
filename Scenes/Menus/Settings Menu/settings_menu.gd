@@ -5,7 +5,6 @@ extends Control
 @onready var check_button = $CheckButton
 
 func _ready():
-	
 	back_button.grab_focus()
 	$MasterVolumeSlide.value = Globals.master_volume
 	$MusicVolumeSlide.value = Globals.music_volume
