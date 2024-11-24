@@ -27,6 +27,7 @@ script = ExtResource("1_o81s0")
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_mbiax")
+layout_mode = 0
 offset_left = -39.0
 offset_top = -16.0
 offset_right = 25.0
@@ -128,6 +129,7 @@ text = "SFX"
 horizontal_alignment = 1
 
 [node name="FullscreenLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 227.0
 offset_top = 43.0
 offset_right = 416.0
