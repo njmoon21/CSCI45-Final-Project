@@ -269,9 +269,8 @@ double_jump_velocity = -200.0
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hhq7b")
-animation = &"death"
+animation = &"idle"
 autoplay = "death"
-frame_progress = 0.962538
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
