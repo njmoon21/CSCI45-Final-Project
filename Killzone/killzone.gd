@@ -3,7 +3,6 @@ extends Area2D
 @onready var timer: Timer = $Timer
 func _on_body_entered(body: Node2D) -> void:
 	body.get_node("CollisionShape2D").queue_free() #removes player collision
-	set_process_input(false)
 	body.death_animation()
 	timer.start()
 	
