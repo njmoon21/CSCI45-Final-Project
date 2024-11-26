@@ -2,9 +2,10 @@ extends Area2D
 
 @onready var timer: Timer = $Timer
 func _on_body_entered(body: Node2D) -> void:
-	body.get_node("CollisionShape2D").queue_free() #removes player collision
-	body.death_animation()
-	timer.start()
+	if body.name == "player":
+		body.get_node("CollisionShape2D").queue_free() #removes player collision
+		body.death_animation()
+		timer.start()
 	
 
 func _on_timer_timeout() -> void: #runs when timer ends

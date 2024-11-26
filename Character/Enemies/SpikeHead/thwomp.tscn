@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbmogj00d8stw"]
+
+[ext_resource type="Script" path="res://Character/Enemies/SpikeHead/thwomp.gd" id="1_wu6j1"]
+[ext_resource type="Texture2D" uid="uid://b60qmi4mcf7bw" path="res://Imported Sprites/Traps/Spike Head/Blink (54x52).png" id="2_efe6r"]
+[ext_resource type="Texture2D" uid="uid://comytjy2cesc8" path="res://Imported Sprites/Traps/Spike Head/Idle.png" id="3_ybawr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eycvb"]
+atlas = ExtResource("2_efe6r")
+region = Rect2(0, 0, 54, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw8cu"]
+atlas = ExtResource("3_ybawr")
+region = Rect2(0, 0, 54, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aicn1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eycvb")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw8cu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7p43"]
+size = Vector2(42.9956, 26.9993)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hm2r"]
+size = Vector2(36, 263)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5bxw"]
+size = Vector2(24.9943, 43.1123)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py6fw"]
+size = Vector2(43.3, 27.7)
+
+[node name="Thwomp" type="CharacterBody2D"]
+script = ExtResource("1_wu6j1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aicn1")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.522396, 0.5022)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_f7p43")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, 121.5)
+shape = SubResource("RectangleShape2D_2hm2r")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="Hurtbox Collision" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0.499999, -0.5)
+rotation = -1.56542
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_v5bxw")
+debug_color = Color(0.985037, 0.163956, 0.201453, 0.42)
+
+[node name="Hurtbox Collision2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0.500006, -0.498503)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_py6fw")
+debug_color = Color(0.985037, 0.163956, 0.201453, 0.42)
+
+[node name="Timer" type="Timer" parent="Hurtbox"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="Hurtbox/Timer" to="." method="_on_timer_timeout"]

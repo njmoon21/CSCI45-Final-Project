@@ -1,15 +1,17 @@
-[gd_scene load_steps=20 format=4 uid="uid://g1pvtlot5psp"]
+[gd_scene load_steps=22 format=4 uid="uid://g1pvtlot5psp"]
 
 [ext_resource type="Shader" path="res://Scenes/Levels/Level1/red_background.gdshader" id="1_na3um"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/level_1.gd" id="1_udj6u"]
 [ext_resource type="Texture2D" uid="uid://dpks0k2kjkgq7" path="res://Imported Sprites/Background/Pink.png" id="2_r1pua"]
 [ext_resource type="Texture2D" uid="uid://c3w8506v5linj" path="res://Imported Sprites/Terrain/Terrain (16x16).png" id="3_vqp4l"]
 [ext_resource type="PackedScene" uid="uid://46fisbj86124" path="res://Character/Player/player.tscn" id="4_a21iq"]
-[ext_resource type="PackedScene" uid="uid://dg88psw1o7w0s" path="res://Character/Enemies/Rock/rock1.tscn" id="5_u7524"]
+[ext_resource type="PackedScene" uid="uid://dbmogj00d8stw" path="res://Character/Enemies/SpikeHead/thwomp.tscn" id="5_ya3vx"]
 [ext_resource type="PackedScene" uid="uid://cxvy52fwy0xpl" path="res://Character/Enemies/Pig/pig_enemy.tscn" id="6_3bubu"]
 [ext_resource type="PackedScene" uid="uid://rkcx56pequd0" path="res://Character/Enemies/BBird/BlueBird.tscn" id="6_smqjy"]
 [ext_resource type="PackedScene" uid="uid://2cusb711oyrs" path="res://Scenes/Menus/Pause Menu/pause_menu.tscn" id="6_vqqq6"]
+[ext_resource type="PackedScene" uid="uid://bg4pmpic5owqr" path="res://Imported Sprites/Traps/Spikes/spikes.tscn" id="8_dtk0a"]
 [ext_resource type="AudioStream" uid="uid://cgxjqhitehbqy" path="res://Audio/Music/[Hotel Dusk_ Room 215] 18 -- Monochrome.mp3" id="9_bnvn4"]
+[ext_resource type="PackedScene" uid="uid://cyn31gikbca3g" path="res://Imported Sprites/Traps/Saw/saw.tscn" id="9_dcvpa"]
 [ext_resource type="PackedScene" uid="uid://di8qoe2hd6led" path="res://Imported Sprites/Items/Checkpoints/End/end.tscn" id="10_p2bmv"]
 [ext_resource type="PackedScene" uid="uid://bbiu0yaye2io0" path="res://Scenes/Menus/Main Menu/main_menu.tscn" id="11_5heyb"]
 [ext_resource type="PackedScene" uid="uid://fa60wqpmdcvm" path="res://Killzone/killzone.tscn" id="12_xxe4m"]
@@ -236,8 +238,8 @@ editor_draw_limits = true
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Rock1" parent="Enemies" instance=ExtResource("5_u7524")]
-position = Vector2(41, 25)
+[node name="Thwomp" parent="Enemies" instance=ExtResource("5_ya3vx")]
+position = Vector2(38, 36)
 
 [node name="Pig Enemy3" parent="Enemies" instance=ExtResource("6_3bubu")]
 position = Vector2(617, 132)
@@ -256,6 +258,14 @@ position = Vector2(1130, 59)
 
 [node name="BlueBird3" parent="Enemies" instance=ExtResource("6_smqjy")]
 position = Vector2(1060, 86)
+
+[node name="Traps" type="Node" parent="."]
+
+[node name="Spikes" parent="Traps" instance=ExtResource("8_dtk0a")]
+position = Vector2(136, 97)
+
+[node name="Saw" parent="Traps" instance=ExtResource("9_dcvpa")]
+position = Vector2(276, 50)
 
 [node name="player" parent="." instance=ExtResource("4_a21iq")]
 position = Vector2(-42, 119)
