@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg4pmpic5owqr"]
+
+[ext_resource type="Texture2D" uid="uid://mp7ca55kpfgj" path="res://Imported Sprites/Traps/Spikes/Idle.png" id="1_v15hk"]
+[ext_resource type="PackedScene" uid="uid://fa60wqpmdcvm" path="res://Killzone/killzone.tscn" id="2_c7d0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hprmn"]
+atlas = ExtResource("1_v15hk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_weeu3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hprmn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obdim"]
+size = Vector2(8, 15.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit1f"]
+size = Vector2(15.8824, 8.49265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp303"]
+size = Vector2(3, 1.08823)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2vgpg"]
+size = Vector2(1, 3)
+
+[node name="Spikes" type="CharacterBody2D"]
+slide_on_ceiling = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_weeu3")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 9.375)
+rotation = 1.5708
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_obdim")
+
+[node name="Killzone" parent="." instance=ExtResource("2_c7d0r")]
+
+[node name="Killbox1" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-1.5, 9.21875)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_hit1f")
+debug_color = Color(0.96031, 0.153106, 0.33251, 0.42)
+
+[node name="Killbox2" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-15.925, 14)
+rotation = 1.5708
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_kp303")
+debug_color = Color(0.937767, 0.213367, 0.339036, 0.42)
+
+[node name="Killbox3" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(12.8625, 14)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_2vgpg")
+debug_color = Color(0.960297, 0.160693, 0.309171, 0.42)
