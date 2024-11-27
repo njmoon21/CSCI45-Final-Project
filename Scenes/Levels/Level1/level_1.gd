@@ -1,10 +1,14 @@
 extends Node2D
-
+	
 @onready var pause_menu = $CanvasLayer/PauseMenu
 @onready var music_player = $Music
 @onready var animation_player = $player
 @onready var tap_audio = $TapSFX
 var paused = false
+
+func _on_tree_entered() -> void:
+	if CheckpointManagement.last_position:
+		$player.global_position = CheckpointManagement.last_position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
