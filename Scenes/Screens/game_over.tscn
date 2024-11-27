@@ -33,6 +33,7 @@ theme_override_fonts/font = ExtResource("1_xdgfi")
 text = "GAME OVER"
 
 [node name="Subtext" type="Label" parent="."]
+layout_mode = 0
 offset_left = 131.0
 offset_top = 137.0
 offset_right = 298.0
