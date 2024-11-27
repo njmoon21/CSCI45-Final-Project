@@ -20,4 +20,6 @@ func _on_body_entered(body: Node2D) -> void:
 		await Transitioner.on_transition_finished
 		CheckpointManagement.activated = false
 		CheckpointManagement.last_position = null
+		Globals.first_time_loaded = true
+		MenuMusic.play()
 		get_tree().change_scene_to_packed(target_level)

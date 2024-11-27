@@ -40,7 +40,18 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 func _on_timer_timeout() -> void:
 	Transitioner.transition()
 	await Transitioner.on_transition_finished
-	get_tree().reload_current_scene() #restarts level
+	Globals.first_time_loaded = false
+	Globals.player_lives -= 1
+
+	# If you still have extra lives, reload and keep playing ----> Otherwise, show game over screen
+	if Globals.player_lives > 0:
+		print("Reloading Scene")
+		get_tree().reload_current_scene() #restarts level
+	else:
+		pass
+		queue_free()
+		#get_tree().change_scene_to_file("res://Scenes/Screens/game_over.tscn")
+
 
 func fall():
 	velocity.y = speed

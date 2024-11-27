@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://g1pvtlot5psp"]
+[gd_scene load_steps=24 format=4 uid="uid://g1pvtlot5psp"]
 
 [ext_resource type="Shader" path="res://Scenes/Levels/Level1/red_background.gdshader" id="1_na3um"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level1/level_1.gd" id="1_udj6u"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://di8qoe2hd6led" path="res://Imported Sprites/Items/Checkpoints/End/end.tscn" id="10_p2bmv"]
 [ext_resource type="PackedScene" uid="uid://bbiu0yaye2io0" path="res://Scenes/Menus/Main Menu/main_menu.tscn" id="11_5heyb"]
 [ext_resource type="PackedScene" uid="uid://fa60wqpmdcvm" path="res://Killzone/killzone.tscn" id="12_xxe4m"]
+[ext_resource type="PackedScene" uid="uid://3ao587ou875o" path="res://Other/lives.tscn" id="13_bup43"]
 [ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="13_qcxbi"]
 [ext_resource type="PackedScene" uid="uid://fe3aa5dn8tms" path="res://Imported Sprites/Items/Checkpoints/Checkpoint/checkpoint.tscn" id="17_7khcv"]
 
@@ -201,7 +202,7 @@ size = Vector2(20, 441)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8egy"]
 size = Vector2(1755, 3.5)
 
-[node name="level1" type="Node2D"]
+[node name="Level1" type="Node2D"]
 script = ExtResource("1_udj6u")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -220,7 +221,7 @@ tile_map_data = PackedByteArray("AAD3/wkAAAAGAAAAAAD3/woAAAAGAAEAAAD3/wsAAAAGAAE
 tile_set = SubResource("TileSet_mjg6q")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position = Vector2(-22, 107)
+position = Vector2(-39, 127)
 offset = Vector2(70, -15)
 process_callback = 0
 limit_left = -145
@@ -269,7 +270,7 @@ position = Vector2(136, 97)
 position = Vector2(276, 50)
 
 [node name="player" parent="." instance=ExtResource("4_a21iq")]
-position = Vector2(-22, 107)
+position = Vector2(-39, 127)
 
 [node name="remoteCamera" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../PlayerCamera")
@@ -279,10 +280,6 @@ remote_path = NodePath("../../PlayerCamera")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="leftWallLimit"]
 position = Vector2(-83, 28)
 shape = SubResource("RectangleShape2D_hnh3j")
-
-[node name="End" parent="." instance=ExtResource("10_p2bmv")]
-position = Vector2(1165, 92)
-target_level = ExtResource("11_5heyb")
 
 [node name="Killzone" parent="." instance=ExtResource("12_xxe4m")]
 
@@ -307,6 +304,12 @@ offset_bottom = 119.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="Lives" parent="CanvasLayer" instance=ExtResource("13_bup43")]
+offset_left = 298.0
+offset_top = 13.0
+offset_right = 338.0
+offset_bottom = 53.0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_bnvn4")
 volume_db = -5.0
@@ -321,5 +324,9 @@ bus = &"SFX"
 
 [node name="Checkpoint" parent="." instance=ExtResource("17_7khcv")]
 position = Vector2(568, 81)
+
+[node name="End" parent="." instance=ExtResource("10_p2bmv")]
+position = Vector2(1165, 92)
+target_level = ExtResource("11_5heyb")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

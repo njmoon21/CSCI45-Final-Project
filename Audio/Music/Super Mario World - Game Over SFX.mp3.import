@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ejmp20qe2xs3"
+path="res://.godot/imported/Super Mario World - Game Over SFX.mp3-5a10d9ff7d61088f52b04fa4572f7c29.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Super Mario World - Game Over SFX.mp3"
+dest_files=["res://.godot/imported/Super Mario World - Game Over SFX.mp3-5a10d9ff7d61088f52b04fa4572f7c29.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

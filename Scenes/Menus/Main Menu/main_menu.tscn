@@ -80,6 +80,7 @@ bus = &"SFX"
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_amlel")
 volume_db = -5.0
+bus = &"Music"
 
 [connection signal="focus_entered" from="startButton" to="." method="_on_start_button_focus_entered"]
 [connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]

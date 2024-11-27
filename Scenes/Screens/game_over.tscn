@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv3i176veiwgv"]
+
+[ext_resource type="Script" path="res://Scenes/Screens/game_over.gd" id="1_wnu0p"]
+[ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="1_xdgfi"]
+[ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="3_6i6eb"]
+[ext_resource type="Script" path="res://Scenes/Screens/blinking_text.gd" id="3_vrmlu"]
+[ext_resource type="AudioStream" uid="uid://ejmp20qe2xs3" path="res://Audio/Music/Super Mario World - Game Over SFX.mp3" id="4_atu10"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wnu0p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -37.0
+offset_right = 473.0
+offset_bottom = 271.0
+color = Color(0, 0, 0, 1)
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 108.0
+offset_right = 283.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("1_xdgfi")
+text = "GAME OVER"
+
+[node name="Subtext" type="Label" parent="."]
+offset_left = 131.0
+offset_top = 137.0
+offset_right = 298.0
+offset_bottom = 160.0
+theme_override_fonts/font = ExtResource("1_xdgfi")
+theme_override_font_sizes/font_size = 8
+text = "Press any key to return"
+script = ExtResource("3_vrmlu")
+
+[node name="Timer" type="Timer" parent="Subtext"]
+wait_time = 0.75
+autostart = true
+
+[node name="TapSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6i6eb")
+volume_db = -10.0
+pitch_scale = 0.5
+bus = &"SFX"
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_atu10")
+volume_db = -10.0
+bus = &"Music"
+
+[connection signal="timeout" from="Subtext/Timer" to="Subtext" method="_on_timer_timeout"]
