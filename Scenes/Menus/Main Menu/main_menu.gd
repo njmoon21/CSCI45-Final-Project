@@ -3,6 +3,8 @@ extends Control
 @onready var tap_audio = $TapSFX
 @onready var start_button = $startButton
 
+
+
 ## Called when the node enters the scene tree for the first time.
 func _ready():
 	MenuMusic.play_menu_music()
