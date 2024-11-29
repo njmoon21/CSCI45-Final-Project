@@ -232,7 +232,7 @@ tile_map_data = PackedByteArray("AAD3/wkAAAAGAAAAAAD3/woAAAAGAAEAAAD3/wsAAAAGAAE
 tile_set = SubResource("TileSet_mjg6q")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position = Vector2(811, 95)
+position = Vector2(-21, 108)
 offset = Vector2(70, -15)
 process_callback = 0
 limit_left = -145
@@ -281,7 +281,7 @@ position = Vector2(522, 128)
 position = Vector2(393, 27)
 
 [node name="player" parent="." instance=ExtResource("4_a21iq")]
-position = Vector2(811, 95)
+position = Vector2(-21, 108)
 
 [node name="remoteCamera" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../PlayerCamera")

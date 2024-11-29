@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var jump_velocity: float = -200.0
 @export var double_jump_velocity: float = -180.0
 @export var dead_animation_string: String = "blank"
+@export var win: bool = false
 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite
 @onready var jump_audio = $jumpSFX
@@ -54,7 +55,7 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left", "right", "up", "down")
 	if direction:
-		if dead_animation_string == "dead":
+		if dead_animation_string == "dead" || win == true:
 			direction = Input.get_vector(" ", " ", " ", " ")
 			velocity.x = 0
 		else:
@@ -126,10 +127,16 @@ func double_jump():
 		animation_locked = true
 		jump_audio.play()
 
-
+func win_animation():
+	win = true
+	animated_sprite.play("win")
+	animation_locked = true
+	await animated_sprite.animation_finished
+	
+	
 # Once you land, unlock the animation so that the character can change between idle and running again
 func land():
-	if dead_animation_string == "dead":
+	if dead_animation_string == "dead" || win == true:
 		animation_locked = true
 	else:
 		animation_locked = false
