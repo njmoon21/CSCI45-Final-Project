@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://3ao587ou875o"]
+
+[ext_resource type="Script" path="res://Other/lives.gd" id="1_yjnkx"]
+[ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="2_nyw30"]
+
+[node name="Lives" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yjnkx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_nyw30")
+text = "Lives:"

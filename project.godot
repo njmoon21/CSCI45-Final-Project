@@ -21,6 +21,7 @@ Transitioner="*res://Other/transitioner.tscn"
 Globals="*res://Other/globals.gd"
 MenuMusic="*res://Other/menu_music.tscn"
 CheckpointManagement="*res://Imported Sprites/Items/Checkpoints/Checkpoint/CheckpointManagement.gd"
+Level1Music="*res://Other/level1_music.tscn"
 
 [display]
 

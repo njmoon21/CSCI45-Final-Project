@@ -8,6 +8,7 @@ func _on_body_entered(body):
 	if CheckpointManagement.activated == true:
 		animated_sprite_2d.play("idle2")
 	if body.name == "player" && active == false:
+		$CheckpointSFX.play()
 		active = true
 		CheckpointManagement.last_position = global_position
 		animated_sprite_2d.play("activated")

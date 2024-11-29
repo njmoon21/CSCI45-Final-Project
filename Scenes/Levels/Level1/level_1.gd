@@ -13,6 +13,8 @@ func _on_tree_entered() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	music_player.play()
+	if Globals.first_time_loaded == true:
+		Globals.player_lives = 3
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -27,9 +29,10 @@ func _process(delta):
 		
 		Transitioner.transition()
 		await Transitioner.on_transition_finished
-		
+		Globals.first_time_loaded = true
 		MenuMusic.play()
 		get_tree().change_scene_to_file("res://Scenes/Menus/Main Menu/main_menu.tscn")
+
 
 func _pause_menu():
 	tap_audio.play()
