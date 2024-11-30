@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dpks0k2kjkgq7" path="res://Imported Sprites/Background/Pink.png" id="2_r1pua"]
 [ext_resource type="Texture2D" uid="uid://c3w8506v5linj" path="res://Imported Sprites/Terrain/Terrain (16x16).png" id="3_vqp4l"]
 [ext_resource type="PackedScene" uid="uid://46fisbj86124" path="res://Character/Player/player.tscn" id="4_a21iq"]
-[ext_resource type="PackedScene" uid="uid://dbmogj00d8stw" path="res://Character/Enemies/SpikeHead/thwomp.tscn" id="5_ya3vx"]
+[ext_resource type="PackedScene" uid="uid://dbmogj00d8stw" path="res://Character/Enemies/Thwomp/thwomp.tscn" id="5_ya3vx"]
 [ext_resource type="PackedScene" uid="uid://cxvy52fwy0xpl" path="res://Character/Enemies/Pig/pig_enemy.tscn" id="6_3bubu"]
 [ext_resource type="PackedScene" uid="uid://rkcx56pequd0" path="res://Character/Enemies/BBird/BlueBird.tscn" id="6_smqjy"]
 [ext_resource type="PackedScene" uid="uid://2cusb711oyrs" path="res://Scenes/Menus/Pause Menu/pause_menu.tscn" id="6_vqqq6"]
@@ -22,7 +22,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wpdw1"]
 shader = ExtResource("1_na3um")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_672ah"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d4ft5"]
 texture = ExtResource("3_vqp4l")
 0:0/0 = 0
 1:0/0 = 0
@@ -205,7 +205,7 @@ texture = ExtResource("3_vqp4l")
 
 [sub_resource type="TileSet" id="TileSet_mjg6q"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_672ah")
+sources/0 = SubResource("TileSetAtlasSource_d4ft5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnh3j"]
 size = Vector2(20, 441)
