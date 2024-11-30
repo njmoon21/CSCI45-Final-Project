@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dbmogj00d8stw"]
 
-[ext_resource type="Script" path="res://Character/Enemies/SpikeHead/thwomp.gd" id="1_wu6j1"]
+[ext_resource type="Script" path="res://Character/Enemies/Thwomp/thwomp.gd" id="1_wu6j1"]
 [ext_resource type="Texture2D" uid="uid://b60qmi4mcf7bw" path="res://Imported Sprites/Traps/Spike Head/Blink (54x52).png" id="2_efe6r"]
 [ext_resource type="Texture2D" uid="uid://comytjy2cesc8" path="res://Imported Sprites/Traps/Spike Head/Idle.png" id="3_ybawr"]
 
