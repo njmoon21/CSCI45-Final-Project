@@ -13,11 +13,11 @@
 [ext_resource type="AudioStream" uid="uid://cgxjqhitehbqy" path="res://Audio/Music/[Hotel Dusk_ Room 215] 18 -- Monochrome.mp3" id="9_bnvn4"]
 [ext_resource type="PackedScene" uid="uid://cyn31gikbca3g" path="res://Imported Sprites/Traps/Saw/saw.tscn" id="9_dcvpa"]
 [ext_resource type="PackedScene" uid="uid://di8qoe2hd6led" path="res://Imported Sprites/Items/Checkpoints/End/end.tscn" id="10_p2bmv"]
-[ext_resource type="PackedScene" uid="uid://bbiu0yaye2io0" path="res://Scenes/Menus/Main Menu/main_menu.tscn" id="11_5heyb"]
 [ext_resource type="PackedScene" uid="uid://fa60wqpmdcvm" path="res://Killzone/killzone.tscn" id="12_xxe4m"]
 [ext_resource type="PackedScene" uid="uid://3ao587ou875o" path="res://Other/lives.tscn" id="13_bup43"]
 [ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="13_qcxbi"]
 [ext_resource type="PackedScene" uid="uid://fe3aa5dn8tms" path="res://Imported Sprites/Items/Checkpoints/Checkpoint/checkpoint.tscn" id="17_7khcv"]
+[ext_resource type="PackedScene" uid="uid://c2ppv17jpmtel" path="res://Scenes/Levels/Level2/level_2.tscn" id="18_mihne"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wpdw1"]
 shader = ExtResource("1_na3um")
@@ -232,7 +232,7 @@ tile_map_data = PackedByteArray("AAD3/wkAAAAGAAAAAAD3/woAAAAGAAEAAAD3/wsAAAAGAAE
 tile_set = SubResource("TileSet_mjg6q")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position = Vector2(-21, 108)
+position = Vector2(1173, 126)
 offset = Vector2(70, -15)
 process_callback = 0
 limit_left = -145
@@ -281,7 +281,7 @@ position = Vector2(522, 128)
 position = Vector2(393, 27)
 
 [node name="player" parent="." instance=ExtResource("4_a21iq")]
-position = Vector2(-21, 108)
+position = Vector2(1173, 126)
 
 [node name="remoteCamera" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../PlayerCamera")
@@ -326,6 +326,7 @@ stream = ExtResource("9_bnvn4")
 volume_db = -5.0
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="TapSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_qcxbi")
@@ -338,6 +339,6 @@ position = Vector2(568, 81)
 
 [node name="End" parent="." instance=ExtResource("10_p2bmv")]
 position = Vector2(1165, 92)
-target_level = ExtResource("11_5heyb")
+target_level = ExtResource("18_mihne")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

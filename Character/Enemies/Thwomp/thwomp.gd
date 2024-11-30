@@ -17,6 +17,7 @@ func _physics_process(delta):
 		velocity.y = -50
 	else:
 		if is_on_floor():
+			$LandSFX.play()
 			animation_locked = false
 			velocity.y = -50
 			velocity.x = 0
