@@ -22,4 +22,4 @@ func _on_timer_timeout() -> void: #runs when timer ends
 	else:
 		print("Game Over")
 		queue_free()
-		get_tree().change_scene_to_file("res://Scenes/Screens/game_over.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Screens/Game Over/game_over.tscn")

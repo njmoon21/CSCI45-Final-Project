@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv3i176veiwgv"]
 
-[ext_resource type="Script" path="res://Scenes/Screens/game_over.gd" id="1_wnu0p"]
+[ext_resource type="Script" path="res://Scenes/Screens/Game Over/game_over.gd" id="1_wnu0p"]
 [ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="1_xdgfi"]
 [ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="3_6i6eb"]
-[ext_resource type="Script" path="res://Scenes/Screens/blinking_text.gd" id="3_vrmlu"]
+[ext_resource type="Script" path="res://Scenes/Screens/Game Over/blinking_text.gd" id="3_vrmlu"]
 [ext_resource type="AudioStream" uid="uid://ejmp20qe2xs3" path="res://Audio/Music/Super Mario World - Game Over SFX.mp3" id="4_atu10"]
 
 [node name="GameOver" type="Control"]

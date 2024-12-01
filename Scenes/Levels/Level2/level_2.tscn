@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="14_pqv2r"]
 [ext_resource type="PackedScene" uid="uid://fe3aa5dn8tms" path="res://Imported Sprites/Items/Checkpoints/Checkpoint/checkpoint.tscn" id="15_7uqx7"]
 [ext_resource type="PackedScene" uid="uid://dt07xu2327f1i" path="res://Imported Sprites/Items/Checkpoints/End/end_2.tscn" id="17_3wd62"]
-[ext_resource type="PackedScene" uid="uid://bbiu0yaye2io0" path="res://Scenes/Menus/Main Menu/main_menu.tscn" id="17_8rw5u"]
+[ext_resource type="PackedScene" uid="uid://c7biin1uiummq" path="res://Scenes/Screens/Thank You/ThankYou.tscn" id="18_23mu2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p22e7"]
 shader = ExtResource("1_6hf8y")
@@ -398,7 +398,7 @@ tile_map_data = PackedByteArray("AAAMAAoAAAAMAAUAAAAMAAsAAAAMAAUAAAANAAoAAAAMAAU
 tile_set = SubResource("TileSet_oyeru")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
-position = Vector2(-5, 167)
+position = Vector2(-3, 154)
 offset = Vector2(70, -15)
 process_callback = 0
 limit_left = -145
@@ -549,7 +549,7 @@ position = Vector2(1361, 144)
 position = Vector2(1393, 144)
 
 [node name="player" parent="." instance=ExtResource("9_0dibh")]
-position = Vector2(-5, 167)
+position = Vector2(-3, 154)
 
 [node name="remoteCamera" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../PlayerCamera")
@@ -607,7 +607,7 @@ position = Vector2(1671, 81)
 
 [node name="End2" parent="." instance=ExtResource("17_3wd62")]
 position = Vector2(4300, 27)
-target_level = ExtResource("17_8rw5u")
+target_level = ExtResource("18_23mu2")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
