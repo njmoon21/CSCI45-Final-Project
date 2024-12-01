@@ -129,6 +129,7 @@ text = "SFX"
 horizontal_alignment = 1
 
 [node name="MusicLabel2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 228.0
 offset_top = 93.0
 offset_right = 417.0
@@ -140,6 +141,7 @@ horizontal_alignment = 1
 
 [node name="MusicLabel3" type="Label" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 211.0
 offset_top = 116.0
 offset_right = 431.0
