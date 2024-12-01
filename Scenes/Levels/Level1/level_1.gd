@@ -30,6 +30,8 @@ func _process(delta):
 		Transitioner.transition()
 		await Transitioner.on_transition_finished
 		Globals.first_time_loaded = true
+		CheckpointManagement.activated = false
+		CheckpointManagement.last_position = null
 		MenuMusic.play()
 		get_tree().change_scene_to_file("res://Scenes/Menus/Main Menu/main_menu.tscn")
 

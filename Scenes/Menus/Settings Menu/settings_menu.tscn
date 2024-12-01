@@ -128,12 +128,40 @@ theme_override_font_sizes/font_size = 16
 text = "SFX"
 horizontal_alignment = 1
 
+[node name="MusicLabel2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 93.0
+offset_right = 417.0
+offset_bottom = 126.0
+theme_override_fonts/font = ExtResource("2_0wgik")
+theme_override_font_sizes/font_size = 16
+text = "Soundtrack"
+horizontal_alignment = 1
+
+[node name="MusicLabel3" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 211.0
+offset_top = 116.0
+offset_right = 431.0
+offset_bottom = 179.0
+theme_override_fonts/font = ExtResource("4_xukwx")
+theme_override_font_sizes/font_size = 8
+text = "Menu - Desert Highway 
+[Hotel Dusk]
+Level 1 - Monochrome 
+[Hotel Dusk]
+Level 2 - Eternal Dungeon
+ [OMORI]"
+horizontal_alignment = 1
+
 [node name="FullscreenLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 227.0
-offset_top = 43.0
-offset_right = 416.0
-offset_bottom = 76.0
+offset_left = 228.0
+offset_top = 29.0
+offset_right = 417.0
+offset_bottom = 62.0
 theme_override_fonts/font = ExtResource("2_0wgik")
 theme_override_font_sizes/font_size = 16
 text = "Fullscreen"
@@ -143,10 +171,10 @@ horizontal_alignment = 1
 modulate = Color(0.101961, 0.886275, 0, 1)
 layout_direction = 2
 layout_mode = 0
-offset_left = 299.0
-offset_top = 63.0
-offset_right = 343.0
-offset_bottom = 87.0
+offset_left = 300.0
+offset_top = 49.0
+offset_right = 344.0
+offset_bottom = 73.0
 scale = Vector2(1.02, 1.02)
 icon_alignment = 1
 

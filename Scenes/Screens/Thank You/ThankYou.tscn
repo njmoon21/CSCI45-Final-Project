@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7biin1uiummq"]
+
+[ext_resource type="Script" path="res://Scenes/Screens/Thank You/thank_you.gd" id="1_34xy0"]
+[ext_resource type="FontFile" uid="uid://c5xa3otwkgxv0" path="res://Imported Fonts/PixelOperator8-Bold.ttf" id="1_imoia"]
+[ext_resource type="FontFile" uid="uid://duq151l3qr0vy" path="res://Imported Fonts/PixelOperator8.ttf" id="3_8o7xx"]
+[ext_resource type="AudioStream" uid="uid://5qrk3ax17xhl" path="res://Audio/SFX/tap.wav" id="3_s21ue"]
+
+[node name="ThankYou" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_34xy0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -37.0
+offset_right = 473.0
+offset_bottom = 271.0
+color = Color(0, 0, 0, 1)
+
+[node name="ThankYouLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 72.0
+offset_right = 371.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("1_imoia")
+text = "Thank You for Playing!"
+
+[node name="Subtext" type="Label" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 101.0
+offset_right = 297.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("3_8o7xx")
+theme_override_font_sizes/font_size = 8
+text = "Project Created by:
+- Nathan Jack Luna
+- Harvir Bassi
+
+
+Special Thanks to:
+Professor Lawton"
+horizontal_alignment = 1
+
+[node name="TapSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s21ue")
+volume_db = -10.0
+pitch_scale = 0.5
+bus = &"SFX"

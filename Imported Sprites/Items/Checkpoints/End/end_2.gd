@@ -5,7 +5,7 @@ extends Area2D
 
 @export var target_level : PackedScene # for level switching or ending game
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _on_ready() -> void:
 	pass # Replace with function body.
 
 
@@ -28,4 +28,5 @@ func _on_body_entered(body: Node2D) -> void:
 		CheckpointManagement.activated = false
 		CheckpointManagement.last_position = null
 		Globals.first_time_loaded = true
+		MenuMusic.play()
 		get_tree().change_scene_to_packed(target_level)

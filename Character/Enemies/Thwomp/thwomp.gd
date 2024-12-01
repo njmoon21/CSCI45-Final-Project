@@ -17,6 +17,7 @@ func _physics_process(delta):
 		velocity.y = -50
 	else:
 		if is_on_floor():
+			$LandSFX.play()
 			animation_locked = false
 			velocity.y = -50
 			velocity.x = 0
@@ -50,7 +51,7 @@ func _on_timer_timeout() -> void:
 	else:
 		print("Game Over")
 		queue_free()
-		get_tree().change_scene_to_file("res://Scenes/Screens/game_over.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Screens/Game Over/game_over.tscn")
 
 
 func fall():
